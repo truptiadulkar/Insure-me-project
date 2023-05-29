@@ -11,7 +11,7 @@
     command: sudo apt-get install -y docker.io
     become: yes
     become_user: root
-  - name: Start docker service using systemctl
+  - name: Start Docker service using systemctl
     command: sudo systemctl start docker
     become: yes
     become_user: root
