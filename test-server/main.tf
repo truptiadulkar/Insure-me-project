@@ -9,7 +9,7 @@ resource "aws_instance" "test-server" {
     private_key = file("./keypairdoc.pem")
     host     = self.public_ip
   }
-  provisioner "remote-exec" {
+  provisioner "local-exec" {
     inline = [ "echo 'wait to start instance' "]
   }
   tags = {
