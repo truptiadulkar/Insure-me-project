@@ -10,7 +10,7 @@ resource "aws_instance" "test-server" {
     host     = self.public_ip
   }
   provisioner "local-exec" {
-    inline = [ "echo 'wait to start instance' "]
+    command = [ "echo 'wait to start instance' "]
   }
   tags = {
     Name = "test-server"
