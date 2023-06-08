@@ -9,7 +9,7 @@ resource "aws_instance" "test-server" {
   }
  
   provisioner "local-exec" {
-   inline = [ "sleep 60", "echo 'Instance ready'"]
+   command = [ "sleep 60", "echo 'Instance ready'"]
   }
 
   connection {
