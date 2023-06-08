@@ -26,7 +26,7 @@ pipeline {
    }
     stage('Docker Image Creation') {
        steps {
-         sh 'docker build -t trupti20/insure-me-project:latest .'
+         sh 'docker build -t trupti20/finance-me-project:latest .'
              }
        } 
      stage('Docker Login') {
@@ -38,7 +38,7 @@ pipeline {
          }
       stage('Push Image to DockerHub') {
        steps {
-         sh 'docker push trupti20/insure-me-project:latest'
+         sh 'docker push trupti20/finance-me-project:latest'
             }
         }
        stage('Deploy Aplication Ansible') {
