@@ -41,11 +41,6 @@ pipeline {
          sh 'docker push trupti20/finance-me-project:latest'
             }
         }
-       stage('Deploy Aplication Ansible') {
-       steps { 
-         ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'Deploy.yml'
-          }
-       } 
       stage('Configure test-server with Terraform, Ansible and then Deploying') {
         steps {
             dir('test-server'){
@@ -56,5 +51,4 @@ pipeline {
             }
        }
     }
-  }
 }
