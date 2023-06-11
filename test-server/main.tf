@@ -8,11 +8,8 @@ resource "aws_instance" "test-server" {
     Name = "test-server"
   }
   
-   provisioner "remote-exec" {
-    inline = [
-      "sleep 60",
-      "echo 'Instance ready'"
-    ]
+   Provisioner "local-exec" {
+   Command = "sleep 60 && echo 'Instance ready' "
   }
   
   connection {
