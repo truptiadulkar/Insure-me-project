@@ -1,4 +1,4 @@
-provider "aws_instance" {
+provider "aws" {
 region     = "ap-south-1b"
 }
 
