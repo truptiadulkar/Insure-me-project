@@ -1,4 +1,4 @@
- "aws_instance" "test-server" {
+resource "aws_instance" "test-server" {
   ami                    = "ami-049a62eb90480f276"
   instance_type          = "t2.micro"
   key_name               = "keypairpem"
@@ -27,7 +27,7 @@
   }
 
   provisioner "local-exec" {
-    command = "ansible-playbook /var/lib/jenkins/workspace/Insure-me-project/test-server/Deploy.yml"
+    command = "ansible-playbook /var/lib/jenkins/workspace/Finance-project/test-server/Deploy.yml"
   }
 }
 
