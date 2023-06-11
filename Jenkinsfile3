@@ -9,7 +9,7 @@ pipeline {
     stage('CheckOut') {
       steps {
         echo 'Checkout the source code from GitHub'
-        git 'https://github.com/truptiadulkar/Insure-me-project.git'
+        git 'https://github.com/truptiadulkar/Finance-project.git'
             }
     }
     stage('Package the Application') {
@@ -21,7 +21,7 @@ pipeline {
     
     stage('Publish Reports using HTML') {
       steps {
-      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/Insure-me-project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '/var/lib/jenkins/workspace/finance-me-project/target/surefire-reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
       }
    }
     stage('Docker Image Creation') {
@@ -44,7 +44,7 @@ pipeline {
       stage('Configure test-server with Terraform, Ansible and then Deploying') {
         steps {
             dir('test-server'){
-            sh 'chmod 600 keypairdoc.pem'
+            sh 'chmod 600 keypairpem.pem'
             sh 'terraform init'
             sh 'terraform validate'
             sh 'terraform apply --auto-approve'
