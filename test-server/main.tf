@@ -1,8 +1,8 @@
  "aws_instance" "test-server" {
   ami                    = "ami-049a62eb90480f276"
   instance_type          = "t2.micro"
-  key_name               = "keypairdoc"
-  vpc_security_group_ids = ["sg-0ddc4a835e0d5e85c"]
+  key_name               = "keypairpem"
+  vpc_security_group_ids = ["sg-0a5b8d6ca31ae2d81"]
 
   tags = {
     Name = "test-server"
@@ -18,7 +18,7 @@
   connection {
     type        = "ssh"
     user        = "ubuntu"
-    private_key = file("./keypairdoc.pem")
+    private_key = file("./keypairpem.pem")
     host        = self.public_ip 
   }
    
