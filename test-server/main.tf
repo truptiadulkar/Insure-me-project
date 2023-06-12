@@ -1,3 +1,4 @@
+
 resource "aws_instance" "test-server" {
   ami                    = "ami-049a62eb90480f276"
   instance_type          = "t2.micro"
@@ -8,8 +9,11 @@ resource "aws_instance" "test-server" {
     Name = "test-server"
   }
   
-   Provisioner "local-exec" {
-   Command = "sleep 60 && echo 'Instance ready' "
+   provisioner "remote-exec" {
+    inline = [
+      "sleep 60",
+      "echo 'Instance ready'"
+    ]
   }
   
   connection {
@@ -27,4 +31,3 @@ resource "aws_instance" "test-server" {
     command = "ansible-playbook /var/lib/jenkins/workspace/Finance-project/test-server/Deploy.yml"
   }
 }
-
